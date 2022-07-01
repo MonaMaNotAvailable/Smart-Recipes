@@ -1,13 +1,15 @@
 import { render } from 'react-dom';
 import Recipe from "./Recipe"
+import SearchParams from './SearchParams';
 
 const App = () => {
     return(
         <div id="my-app">
             <h1>Smart Recipe</h1>
-            <Recipe name = "Okonomiyaki" type = "Carbohydrate" style = "Japanese"/>
+            <SearchParams/>
+            {/* <Recipe name = "Okonomiyaki" type = "Carbohydrate" style = "Japanese"/>
             <Recipe name = "Madeleine" type = "Dessert" style = "Franch"/>
-            <Recipe name = "Egg Fried Rice" type = "Carbohydrate" style = "Chinese"/>
+            <Recipe name = "Egg Fried Rice" type = "Carbohydrate" style = "Chinese"/> */}
         </div>
     )
 }
