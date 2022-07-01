@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import Recipe from "./Recipe"
 
-const RECIPE = ["Carbonhydrate", "Dessert", "Meat", "Vegie", "Appetizer"];
+const TYPES = ["Carbonhydrate", "Dessert", "Meat", "Vegie", "Appetizer"];
 
 // const sum = (x,y) =>{
 //     return x+y;
@@ -15,16 +15,34 @@ const RECIPE = ["Carbonhydrate", "Dessert", "Meat", "Vegie", "Appetizer"];
 const SearchParams = () => {
     // const location = "Boston, MA";
     const [location, setLocation] = useState("");
-    const [recipe, setRecipe] = useState("");
+    const [type, setType] = useState("");
     const [style, setStyle] = useState("");
-    const styles = ["Japanese", "French", "Chinese"];
     const [recipes, setRecipes] = useState([]);
+    // //Equivalent to:
+    // const recipeHook = useState([]);
+    // const recipes = recipeHook[0];
+    // const setRecipes = recipeHook[1];
+    // //or
+    // const {recipe:state.setRecipe:setState} = useState("")
+    const styles = ["Japanese", "French", "Chinese"];
 
     useEffect(() => {
         //make request to API & call setRecipes
         requestRecipes();
         //array of dependable properties
-    }, [style])
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+    async function requestRecipes(){
+        // const res = await fetch(
+        //     `http://pets-v2.dev-apis.com/pets?type=${type}&location=${location}
+        //     &style=${style}` //http://pets-v2.dev-apis.com/pets
+        // );
+        // const json = await res.json(); 
+        //load local json instead of using Pet API
+        const json = require('../recipes.json'); 
+
+        setRecipes(json.recipes);
+    }
 
     return (
         <div className="search-params">
@@ -40,38 +58,38 @@ const SearchParams = () => {
             {/* controlled form */}
             <form>
                 <label htmlFor="location">
-                    location
+                    Location
                     <input id = 'location' 
                     value={location} 
                     placeholder="Location" 
                     onChange = {(e) => setLocation(e.target.value)}
                     />
                 </label>
-                <label htmlFor = "recipe">
-                    Recipe
+                <label htmlFor = "type">
+                    Type
                     <select
-                    id="recipe"
-                    value={recipe}
+                    id="type"
+                    value={type}
                     onChange={(e)=>{
-                        setRecipe(e.target.value);
+                        setType(e.target.value);
                         setStyle("");
                     }}
                     onBlur={(e)=>{
-                        setRecipe(e.target.value);
+                        setType(e.target.value);
                         setStyle("");
                     }}
                     >
                         <option/>
-                        {RECIPE.map((recipe) => (
-                            <option key={recipe} value={recipe}>
-                                {recipe}
+                        {TYPES.map((type) => (
+                            <option key={type} value={type}>
+                                {type}
                             </option>
                         ))}
                         {/* equivalent to:
-                        {RECIPE.map((recipe) => {
+                        {type.map((type) => {
                             return(
-                                <option key={recipe} value={recipe}>
-                                    {recipe}
+                                <option key={type} value={type}>
+                                    {type}
                                 </option>
                             );
                         })} */}
@@ -99,6 +117,15 @@ const SearchParams = () => {
                 </label>
                 <button>Submit</button>
             </form>
+            {
+                recipes.map((recipe) => (
+                    <Recipe 
+                    name = {recipe.name} 
+                    type = {recipe.type} 
+                    style = {recipe.style} 
+                    key = {recipe.id} />
+                ))
+            }
         </div>
     )
 }
