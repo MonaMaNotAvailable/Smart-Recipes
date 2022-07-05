@@ -5,7 +5,7 @@
     "hasNext": true,
     "recipes": [
       {
-        "id": 1,
+        "id": 0,
         "name": "Okonomiyaki",
         "type": "Carbohydrate",
         "city": "Osaka",
@@ -13,23 +13,25 @@
         "description": "Okonomiyaki is a Japanese savory pancake dish consisting of wheat flour batter and other ingredients cooked on a teppan.",
         "style": "Japanese",
         "images": [
-          "../images/okonomiyaki.jpg"
+          "https://images.immediate.co.uk/production/volatile/sites/30/2022/01/Okonomiyaki-pg13-363c802-03b59be.jpg",
+          "https://static.onecms.io/wp-content/uploads/sites/44/2020/04/10/7944738.jpg"
         ]
       },
       {
-        "id": 2,
+        "id": 1,
         "name": "Madeleine",
         "type": "Dessert",
         "city": "Lorraine",
         "country": "France",
         "description": "The original French madeleine is a small, traditional cake from two communes of the Lorraine region of northeastern France – Liverdun and Commercy.",
-        "style": "Franch",
+        "style": "French",
         "images": [
-          "https://theculturetrip.com/wp-content/uploads/2018/01/5474066301_acf09f2170_b.jpg"
+          "https://theculturetrip.com/wp-content/uploads/2018/01/5474066301_acf09f2170_b.jpg",
+          "https://supermancooks.com/wp-content/uploads/2016/08/chocolate-dipped-madeleine-cookies.F.jpg"
         ]
       },
       {
-        "id": 3,
+        "id": 2,
         "name": "Egg Fried Rice",
         "type": "Carbohydrate",
         "city": "Yangzhou",
@@ -37,7 +39,8 @@
         "description": "While the exact origins of fried rice are lost to history, it's believed that it was invented sometime during the Sui dynasty (A.D. 589–618), in the city of Yangzhou in eastern Jiangsu province.",
         "style": "Chinese",
         "images": [
-          "https://www.thespruceeats.com/thmb/O2eM-zb7RxmPF0GD35CNPhdXnEA=/1500x844/smart/filters:no_upscale()/EightTreasureFriedRiceStirFry-resized-56a143985f9b58b7d0bd9af0.jpg"
+          "https://redhousespice.com/wp-content/uploads/2021/10/Chinese-egg-fried-rice-in-a-bowl-scaled.jpg",
+          "https://www.kitchensanctuary.com/wp-content/uploads/2021/03/Egg-fried-rice-square-FS-40-500x500.jpg"
         ]
       }
     ]

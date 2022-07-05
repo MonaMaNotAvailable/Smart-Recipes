@@ -1,8 +1,9 @@
 //don't put hooks in if/else statements or loop!!!
 import { useState, useEffect } from "react";
-import Recipe from "./Recipe"
+import useStyleList from "./useStyleList";
+import Results from "./Results";
 
-const TYPES = ["Carbonhydrate", "Dessert", "Meat", "Vegie", "Appetizer"];
+const TYPES = ["Carbohydrate", "Dessert", "Meat", "Vegie", "Appetizer", "Beverage"];
 
 // const sum = (x,y) =>{
 //     return x+y;
@@ -24,7 +25,9 @@ const SearchParams = () => {
     // const setRecipes = recipeHook[1];
     // //or
     // const {recipe:state.setRecipe:setState} = useState("")
-    const styles = ["Japanese", "French", "Chinese"];
+
+    //const styles = ["Japanese", "French", "Chinese"];
+    const [styles] = useStyleList(type);
 
     useEffect(() => {
         //make request to API & call setRecipes
@@ -40,8 +43,21 @@ const SearchParams = () => {
         // const json = await res.json(); 
         //load local json instead of using Pet API
         const json = require('../recipes.json'); 
-
-        setRecipes(json.recipes);
+        const output = json.recipes
+        //setRecipes(json.recipes);
+        
+        // let filtered = output;
+        // if(type != []){
+        //     filtered = output.filter(a => a.type == type);
+        // }
+        // elseif(style != []){
+        //     filtered = filtered.filter(a => a.style == style);
+        // }
+        // //Equivalent to:
+        let filtered = (!type.length) ? output
+        : (!style.length) ? output.filter(a => a.type == type) 
+        : output.filter(a => a.type == type && a.style == style);
+        setRecipes(filtered);
     }
 
     return (
@@ -56,7 +72,13 @@ const SearchParams = () => {
             </form> */}
             
             {/* controlled form */}
-            <form>
+            <form
+            onSubmit={e => {
+                e.preventDefault();
+                requestRecipes();
+            }}
+            
+            >
                 <label htmlFor="location">
                     Location
                     <input id = 'location' 
@@ -117,17 +139,9 @@ const SearchParams = () => {
                 </label>
                 <button>Submit</button>
             </form>
-            {
-                recipes.map((recipe) => (
-                    <Recipe 
-                    name = {recipe.name} 
-                    type = {recipe.type} 
-                    style = {recipe.style} 
-                    key = {recipe.id} />
-                ))
-            }
+            <Results recipes = {recipes} />
         </div>
-    )
-}
+    );
+};
 
 export default SearchParams;
