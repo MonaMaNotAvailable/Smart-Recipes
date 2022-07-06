@@ -1,7 +1,9 @@
 {
   "name": "smart-recipes",
   "version": "1.0.0",
+  "homepage": "https://monamanotavailable.github.io/Smart-Recipes/",
   "description": "Generate recipes based on given ingredients",
+  "main": "src/App.js",
   "scripts": {
     "dev": "parcel src/index.html",
     "format": "prettier --write \"src/**/*.{js,jsx}\"",
@@ -13,12 +15,11 @@
     "url": "git+https://github.com/MonaMaNotAvailable/Smart-Recipes.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Mona Ma",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/MonaMaNotAvailable/Smart-Recipes/issues"
   },
-  "homepage": "https://monamanotavailable.github.io/Smart-Recipes/",
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.16.7",
     "eslint": "^8.8.0",
