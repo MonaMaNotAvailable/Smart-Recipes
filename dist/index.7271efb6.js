@@ -2903,66 +2903,80 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _reactDom = require("react-dom");
 var _reactRouterDom = require("react-router-dom");
-var _react = require("react"); //import Recipe from "./Recipe"
+var _react = require("react");
+var _themeContext = require("./ThemeContext");
+var _themeContextDefault = parcelHelpers.interopDefault(_themeContext);
 var _searchParams = require("./SearchParams");
 var _searchParamsDefault = parcelHelpers.interopDefault(_searchParams);
-var _details = require("./Details");
+var _details = require("./Details"); //Prop Drilling problem: passing props(e.g. theme) into every component in app
 var _detailsDefault = parcelHelpers.interopDefault(_details);
+var _s = $RefreshSig$();
+//Context > Redux
 const App = ()=>{
+    _s();
+    const theme = (0, _react.useState)("#ba68c8");
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react.StrictMode), {
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.BrowserRouter), {
-            children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("header", {
-                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                        to: "/",
-                        children: "Try this Recipe!"
-                    }, void 0, false, {
-                        fileName: "src/App.js",
-                        lineNumber: 15,
-                        columnNumber: 17
-                    }, undefined)
-                }, void 0, false, {
-                    fileName: "src/App.js",
-                    lineNumber: 14,
-                    columnNumber: 13
-                }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Routes), {
-                    children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
-                            path: "/details/:id",
-                            element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _detailsDefault.default), {}, void 0, false, void 0, void 0)
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _themeContextDefault.default).Provider, {
+            value: theme,
+            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.BrowserRouter), {
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("header", {
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                            to: "/",
+                            children: "Try this Recipe!"
                         }, void 0, false, {
                             fileName: "src/App.js",
                             lineNumber: 18,
-                            columnNumber: 17
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
-                            path: "/",
-                            element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _searchParamsDefault.default), {}, void 0, false, void 0, void 0)
-                        }, void 0, false, {
-                            fileName: "src/App.js",
-                            lineNumber: 19,
-                            columnNumber: 17
+                            columnNumber: 21
                         }, undefined)
-                    ]
-                }, void 0, true, {
-                    fileName: "src/App.js",
-                    lineNumber: 17,
-                    columnNumber: 13
-                }, undefined)
-            ]
-        }, void 0, true, {
+                    }, void 0, false, {
+                        fileName: "src/App.js",
+                        lineNumber: 17,
+                        columnNumber: 17
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Routes), {
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                                path: "/details/:id",
+                                element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _detailsDefault.default), {}, void 0, false, void 0, void 0)
+                            }, void 0, false, {
+                                fileName: "src/App.js",
+                                lineNumber: 21,
+                                columnNumber: 21
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                                path: "/",
+                                element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _searchParamsDefault.default), {}, void 0, false, void 0, void 0)
+                            }, void 0, false, {
+                                fileName: "src/App.js",
+                                lineNumber: 22,
+                                columnNumber: 21
+                            }, undefined)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/App.js",
+                        lineNumber: 20,
+                        columnNumber: 17
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/App.js",
+                lineNumber: 13,
+                columnNumber: 13
+            }, undefined)
+        }, void 0, false, {
             fileName: "src/App.js",
-            lineNumber: 10,
+            lineNumber: 12,
             columnNumber: 9
         }, undefined)
     }, void 0, false, {
         fileName: "src/App.js",
-        lineNumber: 9,
+        lineNumber: 11,
         columnNumber: 10
     }, undefined) // <div id="my-app">
     ;
 }; // const App = () => {
+_s(App, "0R44XfSOQxo7dbSDiJAefL2b9fI=");
 _c = App;
 //   return React.createElement("div", {}, [
 //     //put id or class name to {}
@@ -2988,7 +3002,7 @@ _c = App;
 //<a href="./recipes/okonomiyaki.html">Okonomiyaki Recipe</a>
 (0, _reactDom.render)(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(App, {}, void 0, false, {
     fileName: "src/App.js",
-    lineNumber: 55,
+    lineNumber: 59,
     columnNumber: 8
 }, undefined), document.getElementById("root"));
 var _c;
@@ -2999,7 +3013,7 @@ $RefreshReg$(_c, "App");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react-dom":"j6uA9","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react/jsx-dev-runtime":"iTorj","./SearchParams":"gR5jP","react-router-dom":"fdOAw","./Details":"aUpxx","react":"21dqq"}],"j6uA9":[function(require,module,exports) {
+},{"react-dom":"j6uA9","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react/jsx-dev-runtime":"iTorj","./SearchParams":"gR5jP","react-router-dom":"fdOAw","./Details":"aUpxx","react":"21dqq","./ThemeContext":"4b9qW"}],"j6uA9":[function(require,module,exports) {
 "use strict";
 function checkDCE() {
     /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */ if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ === "undefined" || typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE !== "function") return;
@@ -24780,12 +24794,14 @@ var _useStyleList = require("./useStyleList");
 var _useStyleListDefault = parcelHelpers.interopDefault(_useStyleList);
 var _results = require("./Results");
 var _resultsDefault = parcelHelpers.interopDefault(_results);
+var _themeContext = require("./ThemeContext");
+var _themeContextDefault = parcelHelpers.interopDefault(_themeContext);
 var _s = $RefreshSig$();
 const TYPES = [
     "Carbohydrate",
     "Dessert",
     "Meat",
-    "Vegie",
+    "Veggie",
     "Appetizer",
     "Beverage"
 ]; // const sum = (x,y) =>{
@@ -24801,7 +24817,8 @@ const SearchParams = ()=>{
     const [location, setLocation] = (0, _react.useState)("");
     const [type1, setType] = (0, _react.useState)("");
     const [style1, setStyle] = (0, _react.useState)("");
-    const [recipes, setRecipes] = (0, _react.useState)([]); // //Equivalent to:
+    const [recipes, setRecipes] = (0, _react.useState)([]);
+    const [theme, setTheme] = (0, _react.useContext)((0, _themeContextDefault.default)); // //Equivalent to:
     // const recipeHook = useState([]);
     // const recipes = recipeHook[0];
     // const setRecipes = recipeHook[1];
@@ -24853,13 +24870,13 @@ const SearchParams = ()=>{
                                 onChange: (e)=>setLocation(e.target.value)
                             }, void 0, false, {
                                 fileName: "src/SearchParams.js",
-                                lineNumber: 78,
+                                lineNumber: 80,
                                 columnNumber: 21
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/SearchParams.js",
-                        lineNumber: 76,
+                        lineNumber: 78,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
@@ -24880,7 +24897,7 @@ const SearchParams = ()=>{
                                 children: [
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {}, void 0, false, {
                                         fileName: "src/SearchParams.js",
-                                        lineNumber: 89,
+                                        lineNumber: 91,
                                         columnNumber: 25
                                     }, undefined),
                                     TYPES.map((type)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
@@ -24888,19 +24905,19 @@ const SearchParams = ()=>{
                                             children: type
                                         }, type, false, {
                                             fileName: "src/SearchParams.js",
-                                            lineNumber: 90,
+                                            lineNumber: 92,
                                             columnNumber: 44
                                         }, undefined))
                                 ]
                             }, void 0, true, {
                                 fileName: "src/SearchParams.js",
-                                lineNumber: 82,
+                                lineNumber: 84,
                                 columnNumber: 21
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/SearchParams.js",
-                        lineNumber: 80,
+                        lineNumber: 82,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
@@ -24919,7 +24936,7 @@ const SearchParams = ()=>{
                                 children: [
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {}, void 0, false, {
                                         fileName: "src/SearchParams.js",
-                                        lineNumber: 112,
+                                        lineNumber: 114,
                                         columnNumber: 25
                                     }, undefined),
                                     styles.map((style)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
@@ -24927,49 +24944,113 @@ const SearchParams = ()=>{
                                             children: style
                                         }, style, false, {
                                             fileName: "src/SearchParams.js",
-                                            lineNumber: 113,
+                                            lineNumber: 115,
                                             columnNumber: 46
                                         }, undefined))
                                 ]
                             }, void 0, true, {
                                 fileName: "src/SearchParams.js",
-                                lineNumber: 107,
+                                lineNumber: 109,
                                 columnNumber: 21
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/SearchParams.js",
-                        lineNumber: 105,
+                        lineNumber: 107,
+                        columnNumber: 17
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                        htmlFor: "theme",
+                        children: [
+                            "Theme",
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("select", {
+                                value: theme,
+                                onChange: (e)=>setTheme(e.target.value),
+                                onBlur: (e)=>setTheme(e.target.value),
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
+                                        value: "#ba68c8",
+                                        children: "Purple"
+                                    }, void 0, false, {
+                                        fileName: "src/SearchParams.js",
+                                        lineNumber: 123,
+                                        columnNumber: 29
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
+                                        value: "#f8bbd0",
+                                        children: "Pink"
+                                    }, void 0, false, {
+                                        fileName: "src/SearchParams.js",
+                                        lineNumber: 124,
+                                        columnNumber: 29
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
+                                        value: "#e57373",
+                                        children: "Coral"
+                                    }, void 0, false, {
+                                        fileName: "src/SearchParams.js",
+                                        lineNumber: 125,
+                                        columnNumber: 29
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
+                                        value: "#4dd0e1",
+                                        children: "Mint"
+                                    }, void 0, false, {
+                                        fileName: "src/SearchParams.js",
+                                        lineNumber: 126,
+                                        columnNumber: 29
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
+                                        value: "#ffb74d",
+                                        children: "Orange"
+                                    }, void 0, false, {
+                                        fileName: "src/SearchParams.js",
+                                        lineNumber: 127,
+                                        columnNumber: 29
+                                    }, undefined)
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/SearchParams.js",
+                                lineNumber: 122,
+                                columnNumber: 21
+                            }, undefined)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/SearchParams.js",
+                        lineNumber: 120,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        style: {
+                            backgroundColor: theme
+                        },
                         children: "Submit"
                     }, void 0, false, {
                         fileName: "src/SearchParams.js",
-                        lineNumber: 118,
+                        lineNumber: 133,
                         columnNumber: 17
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/SearchParams.js",
-                lineNumber: 72,
+                lineNumber: 74,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _resultsDefault.default), {
                 recipes: recipes
             }, void 0, false, {
                 fileName: "src/SearchParams.js",
-                lineNumber: 120,
+                lineNumber: 137,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/SearchParams.js",
-        lineNumber: 55,
+        lineNumber: 57,
         columnNumber: 10
     }, undefined);
 };
-_s(SearchParams, "K8uC59bv6Ug3rQNFbr9YWWkGJJU=", false, function() {
+_s(SearchParams, "4aBI3PzqKFSADyw/u+CPEn9jLxY=", false, function() {
     return [
         (0, _useStyleListDefault.default)
     ];
@@ -24984,8 +25065,8 @@ $RefreshReg$(_c, "SearchParams");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react":"21dqq","../recipes.json":"bkHEs","./useStyleList":"425kq","./Results":"6w7nu"}],"bkHEs":[function(require,module,exports) {
-module.exports = JSON.parse('{"numberOfResults":3,"startIndex":0,"endIndex":2,"hasNext":true,"recipes":[{"id":0,"name":"Okonomiyaki","type":"Carbohydrate","city":"Osaka","country":"Japan","description":"Okonomiyaki is a Japanese savory pancake dish consisting of wheat flour batter and other ingredients cooked on a teppan.","style":"Japanese","images":["https://images.immediate.co.uk/production/volatile/sites/30/2022/01/Okonomiyaki-pg13-363c802-03b59be.jpg","https://static.onecms.io/wp-content/uploads/sites/44/2020/04/10/7944738.jpg"]},{"id":1,"name":"Madeleine","type":"Dessert","city":"Lorraine","country":"France","description":"The original French madeleine is a small, traditional cake from two communes of the Lorraine region of northeastern France \u2013 Liverdun and Commercy.","style":"French","images":["https://theculturetrip.com/wp-content/uploads/2018/01/5474066301_acf09f2170_b.jpg","https://supermancooks.com/wp-content/uploads/2016/08/chocolate-dipped-madeleine-cookies.F.jpg"]},{"id":2,"name":"Egg Fried Rice","type":"Carbohydrate","city":"Yangzhou","country":"China","description":"While the exact origins of fried rice are lost to history, it\'s believed that it was invented sometime during the Sui dynasty (A.D. 589\u2013618), in the city of Yangzhou in eastern Jiangsu province.","style":"Chinese","images":["https://redhousespice.com/wp-content/uploads/2021/10/Chinese-egg-fried-rice-in-a-bowl-scaled.jpg","https://www.kitchensanctuary.com/wp-content/uploads/2021/03/Egg-fried-rice-square-FS-40-500x500.jpg"]}]}');
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react":"21dqq","../recipes.json":"bkHEs","./useStyleList":"425kq","./Results":"6w7nu","./ThemeContext":"4b9qW"}],"bkHEs":[function(require,module,exports) {
+module.exports = JSON.parse('{"numberOfResults":3,"startIndex":0,"endIndex":2,"hasNext":true,"recipes":[{"id":0,"name":"Okonomiyaki","type":"Carbohydrate","city":"Osaka","country":"Japan","description":"Okonomiyaki is a Japanese savory pancake dish consisting of wheat flour batter and other ingredients cooked on a teppan.","style":"Japanese","images":["https://images.immediate.co.uk/production/volatile/sites/30/2022/01/Okonomiyaki-pg13-363c802-03b59be.jpg","https://static.onecms.io/wp-content/uploads/sites/44/2020/04/10/7944738.jpg"]},{"id":1,"name":"Madeleine","type":"Dessert","city":"Lorraine","country":"France","description":"The original French madeleine is a small, traditional cake from two communes of the Lorraine region of northeastern France \u2013 Liverdun and Commercy.","style":"French","images":["https://theculturetrip.com/wp-content/uploads/2018/01/5474066301_acf09f2170_b.jpg","https://supermancooks.com/wp-content/uploads/2016/08/chocolate-dipped-madeleine-cookies.F.jpg"]},{"id":2,"name":"Egg Fried Rice","type":"Carbohydrate","city":"Yangzhou","country":"China","description":"While the exact origins of fried rice are lost to history, it\'s believed that it was invented sometime during the Sui dynasty (A.D. 589\u2013618), in the city of Yangzhou in eastern Jiangsu province.","style":"Chinese","images":["https://redhousespice.com/wp-content/uploads/2021/10/Chinese-egg-fried-rice-in-a-bowl-scaled.jpg","https://www.kitchensanctuary.com/wp-content/uploads/2021/03/Egg-fried-rice-square-FS-40-500x500.jpg"]},{"id":3,"name":"Tagliatelle alla Bolognese","type":"Carbohydrate","city":"Emilia-Romagna","country":"Itlay","description":"Rag\xf9 served over silken egg tagliatelle, a signature dish of Bologna, the food-loving capital city of Emilia-Romagna. In fact, this rich, meaty tomato rag\xf9 is so closely associated with Bologna that any dish described as Bolognese will be cloaked in it.","style":"Italian","images":["https://pinabresciani.com/wp-content/uploads/2022/06/Tagliatelle-alla-bolognese-1200.jpg","https://www.eataly.com/wp/wp-content/uploads/2017/11/tagliatelle-al-ragu-pasta-web.jpg","https://i0.wp.com/dineandfash.com/wp-content/uploads/2020/07/Tagliatelle-alla-Bolognese-8.jpg?fit=1080%2C1618&ssl=1"]},{"id":4,"name":"Korean Fried Chicken","type":"Meat","city":"Seoul","country":"South Korea","description":"Super crispy due to the addition of potato starch in its batter and double frying the chicken. This second fry also boils off the extra moisture in the chicken after the first fry. Korean fried chicken is known to stay extra crispy for an extended period of time, even with a glaze!","style":"Korean","images":["https://www.kitchensanctuary.com/wp-content/uploads/2019/08/Korean-Fried-Chicken-square-FS-New-7377.jpg","https://tiffycooks.com/wp-content/uploads/2021/03/Korean-Fried-Chicken.png"]},{"id":5,"name":"Arugula Salad","type":"Veggie","city":"La Mancha","country":"Spain","description":"Perfect for autumn, this Spanish-style salad combines peppery arugula, juicy apples, crunchy almonds and Manchego, the deliciously piquant sheep\'s milk cheese from the region of La Mancha in Spain!","style":"Spanish","images":["https://img.sunset02.com/sites/default/files/arugula-pear-salad-su.jpg","https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F19%2F2016%2F08%2F30%2F1610p128-lemony-white-bean-arugula-salad.jpg&q=60"]},{"id":6,"name":"Strawberry Matcha Latte with Boba","type":"Beverage","city":"San Francisco, CA","country":"United States","description":"When we were building Boba Guys, we wrote three simple words down that forever anchored us in our business strategy: quality, passion, and transparency. Over time, it\'s evolved into three core values that every Boba Guy and Boba Gal stands for. ","style":"American","images":["https://images.squarespace-cdn.com/content/v1/50ce46ece4b01020c34fd52b/1538688142616-8Q6019573PWO6MSXILHN/Screen+Shot+2018-10-04+at+2.22.04+PM.png","https://cdn.vox-cdn.com/thumbor/b1l0HQNqz553NPF5bUpuqMCPhJs=/1400x1050/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/10851333/Boba_Guys_Oolong_Muscat_Milk_Tea.jpg"]},{"id":7,"name":"Bacon-Wrapped Cherry Peppers/Scallops","type":"Appetizer","city":"New Bedford, MA","country":"United States","description":"These genius hors d\'oeuvres from Colby Garrelts (an F&W Best New Chef 2005) call for just three ingredients. The recipe can be made ahead of time, so it\'s great for parties. ","style":"American","images":["https://images.themodernproper.com/billowy-turkey/production/posts/2019/bacon-wrapped-scallops-11.jpg?w=960&h=960&q=82&fm=jpg&fit=crop&dm=1599768378&s=05b57ff6058729731c51040218d0bd67","https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F9%2F2020%2F05%2F26%2F201305-xl-bacon-wrapped-cherry-peppers-2000.jpg"]}]}');
 
 },{}],"425kq":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$ac6b = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
@@ -26877,7 +26958,29 @@ const normalizePathname = (pathname)=>pathname.replace(/\/+$/, "").replace(/^\/*
 const normalizeSearch = (search)=>!search || search === "?" ? "" : search.startsWith("?") ? search : "?" + search;
 const normalizeHash = (hash)=>!hash || hash === "#" ? "" : hash.startsWith("#") ? hash : "#" + hash; ///////////////////////////////////////////////////////////////////////////////
 
-},{"react":"21dqq","history":"iE5Zp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aUpxx":[function(require,module,exports) {
+},{"react":"21dqq","history":"iE5Zp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4b9qW":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$f9ac = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$f9ac.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react"); //mimic a hook
+//const [theme, setTheme] =  useState('pink');
+const ThemeContext = /*#__PURE__*/ (0, _react.createContext)([
+    "#ba68c8",
+    ()=>{}
+]);
+exports.default = ThemeContext;
+
+  $parcel$ReactRefreshHelpers$f9ac.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"aUpxx":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$0da2 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -26889,8 +26992,14 @@ parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactRouterDom = require("react-router-dom");
-var _carousel = require("./Carousel"); // //Function component
+var _carousel = require("./Carousel");
 var _carouselDefault = parcelHelpers.interopDefault(_carousel);
+var _errorBoundary = require("./ErrorBoundary");
+var _errorBoundaryDefault = parcelHelpers.interopDefault(_errorBoundary);
+var _themeContext = require("./ThemeContext");
+var _themeContextDefault = parcelHelpers.interopDefault(_themeContext);
+var _modal = require("./Modal"); // //Function component
+var _modalDefault = parcelHelpers.interopDefault(_modal);
 var _s = $RefreshSig$();
 function _defineProperty(obj, key, value) {
     if (key in obj) Object.defineProperty(obj, key, {
@@ -26912,8 +27021,12 @@ class Details extends (0, _react.Component) {
     constructor(...args){
         super(...args);
         _defineProperty(this, "state", {
-            loading: true
+            loading: true,
+            showModal: false
         });
+        _defineProperty(this, "toggleModal", ()=>this.setState({
+                showModal: !this.state.showModal
+            }));
     }
     //a class property
     //Lifecycle method, equivalent to useEffect(() => {}, []);
@@ -26932,10 +27045,10 @@ class Details extends (0, _react.Component) {
             children: "loading ..."
         }, void 0, false, {
             fileName: "src/Details.js",
-            lineNumber: 39,
+            lineNumber: 47,
             columnNumber: 14
         }, this);
-        const { recipe , type , city , country , description , name , images  } = this.state;
+        const { recipe , type , city , country , description , name , images , showModal  } = this.state;
         return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
             className: "details",
             children: [
@@ -26943,7 +27056,7 @@ class Details extends (0, _react.Component) {
                     images: images
                 }, void 0, false, {
                     fileName: "src/Details.js",
-                    lineNumber: 52,
+                    lineNumber: 61,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -26952,7 +27065,7 @@ class Details extends (0, _react.Component) {
                             children: name
                         }, void 0, false, {
                             fileName: "src/Details.js",
-                            lineNumber: 54,
+                            lineNumber: 63,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
@@ -26967,48 +27080,118 @@ class Details extends (0, _react.Component) {
                             ]
                         }, void 0, true, {
                             fileName: "src/Details.js",
-                            lineNumber: 55,
+                            lineNumber: 64,
                             columnNumber: 21
                         }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                            children: [
-                                "Try to cook ",
-                                name
-                            ]
-                        }, void 0, true, {
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _themeContextDefault.default).Consumer, {
+                            children: ([theme])=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                    onClick: this.toggleModal,
+                                    style: {
+                                        backgroundColor: theme
+                                    },
+                                    children: [
+                                        "Try to cook ",
+                                        name,
+                                        "!"
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "src/Details.js",
+                                    lineNumber: 68,
+                                    columnNumber: 39
+                                }, this)
+                        }, void 0, false, {
                             fileName: "src/Details.js",
-                            lineNumber: 58,
+                            lineNumber: 67,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                             children: description
                         }, void 0, false, {
                             fileName: "src/Details.js",
-                            lineNumber: 59,
+                            lineNumber: 74,
                             columnNumber: 21
-                        }, this)
+                        }, this),
+                        showModal ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _modalDefault.default), {
+                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                                        children: [
+                                            "Would you like to cook ",
+                                            name,
+                                            "?"
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "src/Details.js",
+                                        lineNumber: 77,
+                                        columnNumber: 33
+                                    }, this),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                        className: "buttons",
+                                        children: [
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                                                href: "https://www.xiachufang.com/",
+                                                children: "Yes"
+                                            }, void 0, false, {
+                                                fileName: "src/Details.js",
+                                                lineNumber: 79,
+                                                columnNumber: 37
+                                            }, this),
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                                onClick: this.toggleModal,
+                                                children: "No"
+                                            }, void 0, false, {
+                                                fileName: "src/Details.js",
+                                                lineNumber: 80,
+                                                columnNumber: 37
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "src/Details.js",
+                                        lineNumber: 78,
+                                        columnNumber: 33
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/Details.js",
+                                lineNumber: 76,
+                                columnNumber: 29
+                            }, this)
+                        }, void 0, false, {
+                            fileName: "src/Details.js",
+                            lineNumber: 75,
+                            columnNumber: 34
+                        }, this) : null
                     ]
                 }, void 0, true, {
                     fileName: "src/Details.js",
-                    lineNumber: 53,
+                    lineNumber: 62,
                     columnNumber: 17
                 }, this)
             ]
         }, void 0, true, {
             fileName: "src/Details.js",
-            lineNumber: 51,
+            lineNumber: 60,
             columnNumber: 12
         }, this);
     }
 }
 const WrappedDetails = ()=>{
     _s();
-    const params = (0, _reactRouterDom.useParams)();
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Details, {
-        params: params
-    }, void 0, false, {
+    const params = (0, _reactRouterDom.useParams)(); // const [theme] = useContext(ThemeContext);
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _errorBoundaryDefault.default), {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Details, {
+                params: params
+            }, void 0, false, {
+                fileName: "src/Details.js",
+                lineNumber: 97,
+                columnNumber: 5
+            }, undefined),
+            ";"
+        ]
+    }, void 0, true, {
         fileName: "src/Details.js",
-        lineNumber: 68,
+        lineNumber: 93,
         columnNumber: 10
     }, undefined);
 };
@@ -27027,7 +27210,7 @@ $RefreshReg$(_c, "WrappedDetails");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-router-dom":"fdOAw","react":"21dqq","../recipes.json":"bkHEs","./Carousel":"1lXBA"}],"1lXBA":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-router-dom":"fdOAw","react":"21dqq","../recipes.json":"bkHEs","./Carousel":"1lXBA","./ErrorBoundary":"dNDjy","./ThemeContext":"4b9qW","./Modal":"FKuaN"}],"1lXBA":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$9e23 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -27113,6 +27296,135 @@ exports.default = Carousel;
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}]},["1xC6H","7Zeie","2kQhy"], "2kQhy", "parcelRequireb161")
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"dNDjy":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$c6cd = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$c6cd.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+//Must use class component for error boundary
+var _react = require("react");
+var _reactRouterDom = require("react-router-dom");
+function _defineProperty(obj, key, value) {
+    if (key in obj) Object.defineProperty(obj, key, {
+        value: value,
+        enumerable: true,
+        configurable: true,
+        writable: true
+    });
+    else obj[key] = value;
+    return obj;
+}
+class ErrorBoundary extends (0, _react.Component) {
+    constructor(...args){
+        super(...args);
+        _defineProperty(this, "state", {
+            hasError: false,
+            redirect: false
+        });
+    }
+    static getDerivedStateFromError() {
+        return {
+            hasError: true
+        };
+    }
+    componentDidCatch(error, info) {
+        console.error(error, info);
+    }
+    componentDidUpdate() {
+        if (this.state.hasError) setTimeout(()=>this.setState({
+                redirect: true
+            }), 5000);
+    }
+    render() {
+        if (this.state.redirect) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Navigate), {
+            to: "/"
+        }, void 0, false, {
+            fileName: "src/ErrorBoundary.js",
+            lineNumber: 38,
+            columnNumber: 14
+        }, this);
+        else if (this.state.hasError) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+            children: [
+                "There was an error. ",
+                " ",
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                    to: "/",
+                    children: "Click here"
+                }, void 0, false, {
+                    fileName: "src/ErrorBoundary.js",
+                    lineNumber: 45,
+                    columnNumber: 21
+                }, this),
+                " to homepage."
+            ]
+        }, void 0, true, {
+            fileName: "src/ErrorBoundary.js",
+            lineNumber: 40,
+            columnNumber: 14
+        }, this);
+        return this.props.children;
+    }
+}
+exports.default = ErrorBoundary;
+
+  $parcel$ReactRefreshHelpers$c6cd.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"fdOAw","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"FKuaN":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$7f78 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$7f78.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDom = require("react-dom");
+var _s = $RefreshSig$();
+const Modal = ({ children  })=>{
+    _s();
+    //want is to be triple equal === exact the same thing in every render
+    //elRef is a frozen object that can only sets current, keep referential equality
+    const elRef = (0, _react.useRef)(null); // const x = {}
+    // const y = {}
+    // const z = x
+    // x !== y;
+    // z === x;
+    if (!elRef.current) elRef.current = document.createElement("div");
+    (0, _react.useEffect)(()=>{
+        const modalRoot = document.getElementById("modal");
+        modalRoot.appendChild(elRef.current); //clean-up function
+        //romeves the final div from container
+        return ()=>modalRoot.removeChild(elRef.current);
+    }, []);
+    return /*#__PURE__*/ (0, _reactDom.createPortal)(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: children
+    }, void 0, false, {
+        fileName: "src/Modal.js",
+        lineNumber: 26,
+        columnNumber: 23
+    }, undefined), elRef.current);
+};
+_s(Modal, "uS4DrwVCzH44ayWi2jMWCV+OL1E=");
+_c = Modal;
+exports.default = Modal;
+var _c;
+$RefreshReg$(_c, "Modal");
+
+  $parcel$ReactRefreshHelpers$7f78.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-dom":"j6uA9","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}]},["1xC6H","7Zeie","2kQhy"], "2kQhy", "parcelRequireb161")
 
 //# sourceMappingURL=index.7271efb6.js.map

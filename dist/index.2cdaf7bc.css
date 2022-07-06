@@ -5,7 +5,7 @@
 
 body {
   background-color: #81a69b;
-  background-image: url("http://pets-images.dev-apis.com/pets/wallpaperB.jpg");
+  background-image: url("https://img.freepik.com/free-photo/fresh-colourful-ingredients-mexican-cuisine_23-2148254294.jpg?w=2000");
   margin: 0;
   font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -71,7 +71,7 @@ body {
   clip-path: circle(50%);
   width: 100px;
   height: 100px;
-  float: right;
+  float: left;
   margin: 0;
 }
 

@@ -1,9 +1,10 @@
 //don't put hooks in if/else statements or loop!!!
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import useStyleList from "./useStyleList";
 import Results from "./Results";
+import ThemeContext from "./ThemeContext";
 
-const TYPES = ["Carbohydrate", "Dessert", "Meat", "Vegie", "Appetizer", "Beverage"];
+const TYPES = ["Carbohydrate", "Dessert", "Meat", "Veggie", "Appetizer", "Beverage"];
 
 // const sum = (x,y) =>{
 //     return x+y;
@@ -19,6 +20,7 @@ const SearchParams = () => {
     const [type, setType] = useState("");
     const [style, setStyle] = useState("");
     const [recipes, setRecipes] = useState([]);
+    const [theme, setTheme] = useContext(ThemeContext);
     // //Equivalent to:
     // const recipeHook = useState([]);
     // const recipes = recipeHook[0];
@@ -137,7 +139,22 @@ const SearchParams = () => {
                         ))}
                     </select>
                 </label>
-                <button>Submit</button>
+                <label htmlFor="theme">
+                    Theme
+                    <select
+                        value={theme}
+                        onChange = {e => setTheme(e.target.value)}
+                        onBlur = {e => setTheme(e.target.value)}
+                        >
+                            <option value="#ba68c8">Purple</option>
+                            <option value="#f8bbd0">Pink</option>
+                            <option value="#e57373">Coral</option>
+                            <option value="#4dd0e1">Mint</option>
+                            <option value="#ffb74d">Orange</option>
+                    </select>
+                </label>
+                {/* {{Object} Let JSX knows it's an expression}  */}
+                <button style={{ backgroundColor: theme }}>Submit</button>
             </form>
             <Results recipes = {recipes} />
         </div>

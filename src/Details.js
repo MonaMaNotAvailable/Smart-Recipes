@@ -1,6 +1,9 @@
 import { Component } from 'react';
 import { useParams } from 'react-router-dom';
 import Carousel from './Carousel';
+import ErrorBoundary from './ErrorBoundary';
+import ThemeContext from './ThemeContext';
+import Modal from './Modal';
 
 // //Function component
 // const Details = () => {
@@ -16,7 +19,7 @@ class Details extends Component {
 
     //     this.state = { loading: true };
     // }
-    state = { loading: true }; //a class property
+    state = { loading: true, showModal: false }; //a class property
 
     //Lifecycle method, equivalent to useEffect(() => {}, []);
     async componentDidMount(){
@@ -29,12 +32,14 @@ class Details extends Component {
         this.setState({ loading: false, ...json.recipes[this.props.params.id] })
     }
 
+    toggleModal = () => this.setState({showModal: !this.state.showModal })
+
     render(){
         if(this.state.loading){
             return <h2>loading ...</h2>
         }
 
-        const { recipe, type, city, country, description, name, images} = this.state;
+        const { recipe, type, city, country, description, name, images, showModal} = this.state;
 
         return (
             <div className = "details">
@@ -44,8 +49,27 @@ class Details extends Component {
                     <h2>
                         {recipe} - {type} - {city}, {country}
                     </h2>
-                    <button>Try to cook {name}</button>
+                    <ThemeContext.Consumer>
+                        {([theme]) => (
+                            <button 
+                            onClick={this.toggleModal}
+                            style={{backgroundColor: theme}}>
+                                Try to cook {name}!
+                            </button>
+                        )}
+                    </ThemeContext.Consumer>
                     <p>{description}</p>
+                    {showModal ? (
+                        <Modal>
+                            <div>
+                                <h1>Would you like to cook {name}?</h1>
+                                <div className="buttons">
+                                    <a href="https://www.xiachufang.com/">Yes</a>
+                                    <button onClick={this.toggleModal}>No</button>
+                                </div>
+                            </div>
+                        </Modal>
+                    ) : null}
                 </div>
             </div>
         );
@@ -54,7 +78,13 @@ class Details extends Component {
 
 const WrappedDetails = () =>{
     const params = useParams();
-    return <Details params={params} />;
-}
+    // const [theme] = useContext(ThemeContext);
+    return (
+        <ErrorBoundary>
+            {/* Details theme = {theme} params={params} />; */}
+<           Details params={params} />;
+        </ErrorBoundary>
+    );
+};
 
 export default WrappedDetails;
