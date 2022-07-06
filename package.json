@@ -18,7 +18,7 @@
   "bugs": {
     "url": "https://github.com/MonaMaNotAvailable/Smart-Recipes/issues"
   },
-  "homepage": "https://github.com/MonaMaNotAvailable/Smart-Recipes/",
+  "homepage": "https://monamanotavailable.github.io/Smart-Recipes/",
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.16.7",
     "eslint": "^8.8.0",
