@@ -9,11 +9,11 @@ const Recipe = ({ name, type, style, images, location, id }) => {
 
     return (
         // <a href={`/details/${id}`} className = 'recipe'>
-        <Link to={`/details/${id}`} className = 'recipe'>
+        <Link to={`/details/${id}`} className = "relative block">
             <div className = "image-container">
-                <img src={img} width={100} height={100} alt={name} />
+                <img src={img} alt={name} />
             </div>
-            <div className = "info">
+            <div className = "absolute bottom-0 left-0 bg-gradient-to-tr from-white to-transparent pr-2 pt-2">
                 <h1>{name}</h1>
                 <h2>
                     {`${type} - ${style} - ${location}`}

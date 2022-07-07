@@ -3,7 +3,7 @@ import Recipe from "./Recipe";
 //can't do statement in curly braces
 const Results = ({recipes}) => {
     return (
-        <div>
+        <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {!recipes.length ? (
                 <h1>No Recipe Found</h1>
             ) : (

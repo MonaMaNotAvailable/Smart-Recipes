@@ -63,7 +63,7 @@ const SearchParams = () => {
     }
 
     return (
-        <div className="search-params">
+        <div className="my-0 mx-auto w-11/12">
             {/* uncontrolled form */}
             {/* <form onSubmit={}>
                 <label htmlFor="location">
@@ -75,7 +75,8 @@ const SearchParams = () => {
             
             {/* controlled form */}
             <form
-            onSubmit={e => {
+            className="p-10 mb-10 rounded-lg bg-gray-200 shadow-lg flex flex-col justify-center items-center"
+            onSubmit={(e) => {
                 e.preventDefault();
                 requestRecipes();
             }}
@@ -83,7 +84,10 @@ const SearchParams = () => {
             >
                 <label htmlFor="location">
                     Location
-                    <input id = 'location' 
+                    <input 
+                    id = 'location' 
+                    className="w-60 mb-5 block"
+                    type="text"
                     value={location} 
                     placeholder="Location" 
                     onChange = {(e) => setLocation(e.target.value)}
@@ -93,6 +97,7 @@ const SearchParams = () => {
                     Type
                     <select
                     id="type"
+                    className="w-60 mb-5 block"
                     value={type}
                     onChange={(e)=>{
                         setType(e.target.value);
@@ -123,6 +128,7 @@ const SearchParams = () => {
                     Style
                     <select
                     id="style"
+                    className="w-60 mb-5 block disabled:opacity-50"
                     value={style}
                     onChange={(e)=>{
                         setStyle(e.target.value);
@@ -143,6 +149,7 @@ const SearchParams = () => {
                     Theme
                     <select
                         value={theme}
+                        className="w-60 mb-5 block"
                         onChange = {e => setTheme(e.target.value)}
                         onBlur = {e => setTheme(e.target.value)}
                         >
@@ -154,7 +161,9 @@ const SearchParams = () => {
                     </select>
                 </label>
                 {/* {{Object} Let JSX knows it's an expression}  */}
-                <button style={{ backgroundColor: theme }}>Submit</button>
+                <button 
+                className="rounded px-6 py-2 color text-white hover:opacity-50 border-none"
+                style={{ backgroundColor: theme }}>Submit</button>
             </form>
             <Results recipes = {recipes} />
         </div>
