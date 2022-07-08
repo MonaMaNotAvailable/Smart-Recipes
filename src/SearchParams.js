@@ -1,8 +1,14 @@
 //don't put hooks in if/else statements or loop!!!
-import { useState, useEffect, useContext } from "react";
+// import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import useStyleList from "./useStyleList";
 import Results from "./Results";
-import ThemeContext from "./ThemeContext";
+// import ThemeContext from "./ThemeContext";
+import { useSelector, useDispatch } from "react-redux";
+import changeLocation from "./actionCreators/changeLocation";
+import changeType from "./actionCreators/changeType";
+import changeStyle from "./actionCreators/changeStyle";
+import changeTheme from "./actionCreators/changeTheme";
 
 const TYPES = ["Carbohydrate", "Dessert", "Meat", "Veggie", "Appetizer", "Beverage"];
 
@@ -15,12 +21,21 @@ const TYPES = ["Carbohydrate", "Dessert", "Meat", "Veggie", "Appetizer", "Bevera
 //;
 
 const SearchParams = () => {
+    const location = useSelector((state) => state.location);
+    const type = useSelector((state) => state.type);
+    const style = useSelector((state) => state.style);
+    const theme = useSelector((state) => state.theme);
+    // // Equivalent to:
+    // const theme = useSelector(({theme}) => theme);
+    const dispatch = useDispatch();
+    
     // const location = "Boston, MA";
-    const [location, setLocation] = useState("");
-    const [type, setType] = useState("");
-    const [style, setStyle] = useState("");
+    // const [location, setLocation] = useState("");
+    // const [type, setType] = useState("");
+    // const [style, setStyle] = useState("");
     const [recipes, setRecipes] = useState([]);
-    const [theme, setTheme] = useContext(ThemeContext);
+    // const [theme, setTheme] = useContext(ThemeContext);
+
     // //Equivalent to:
     // const recipeHook = useState([]);
     // const recipes = recipeHook[0];
@@ -90,7 +105,8 @@ const SearchParams = () => {
                     type="text"
                     value={location} 
                     placeholder="Location" 
-                    onChange = {(e) => setLocation(e.target.value)}
+                    // onChange = {(e) => setLocation(e.target.value)}
+                    onChange={(e) => dispatch(changeLocation(e.target.value))}
                     />
                 </label>
                 <label htmlFor = "type">
@@ -99,14 +115,16 @@ const SearchParams = () => {
                     id="type"
                     className="w-60 mb-5 block"
                     value={type}
-                    onChange={(e)=>{
-                        setType(e.target.value);
-                        setStyle("");
-                    }}
-                    onBlur={(e)=>{
-                        setType(e.target.value);
-                        setStyle("");
-                    }}
+                    onChange={(e)=>
+                        // setType(e.target.value);
+                        // setStyle("");
+                        dispatch(changeType(e.target.value))
+                    }
+                    onBlur={(e)=>
+                        // setType(e.target.value);
+                        // setStyle("");
+                        dispatch(changeType(e.target.value))
+                    }
                     >
                         <option/>
                         {TYPES.map((type) => (
@@ -130,12 +148,14 @@ const SearchParams = () => {
                     id="style"
                     className="w-60 mb-5 block disabled:opacity-50"
                     value={style}
-                    onChange={(e)=>{
-                        setStyle(e.target.value);
-                    }}
-                    onBlur={(e)=>{
-                        setStyle(e.target.value);
-                    }}
+                    onChange={(e)=>
+                        // setStyle(e.target.value);
+                        dispatch(changeStyle(e.target.value))
+                    }
+                    onBlur={(e)=>
+                        // setStyle(e.target.value);
+                        dispatch(changeStyle(e.target.value))
+                    }
                     >
                         <option/>
                         {styles.map((style) => (
@@ -150,8 +170,12 @@ const SearchParams = () => {
                     <select
                         value={theme}
                         className="w-60 mb-5 block"
-                        onChange = {e => setTheme(e.target.value)}
-                        onBlur = {e => setTheme(e.target.value)}
+                        onChange = {e => 
+                            // setTheme(e.target.value)}
+                            dispatch(changeTheme(e.target.value))}
+                        onBlur = {e => 
+                            // setTheme(e.target.value)}
+                            dispatch(changeTheme(e.target.value))}
                         >
                             <option value="#ba68c8">Purple</option>
                             <option value="#f8bbd0">Pink</option>

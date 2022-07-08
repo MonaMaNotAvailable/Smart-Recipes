@@ -496,31 +496,6 @@ select {
   border-style: none;
 }
 
-.bg-gray-200 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(229 231 235 / var(--tw-bg-opacity) );
-}
-
-.bg-blue-200 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(191 219 254 / var(--tw-bg-opacity) );
-}
-
-.bg-pink-200 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(251 207 232 / var(--tw-bg-opacity) );
-}
-
-.bg-red-200 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(254 202 202 / var(--tw-bg-opacity) );
-}
-
-.bg-fuchsia-300 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(240 171 252 / var(--tw-bg-opacity) );
-}
-
 .bg-fuchsia-200 {
   --tw-bg-opacity: 1;
   background-color: rgb(245 208 254 / var(--tw-bg-opacity) );
@@ -548,16 +523,12 @@ select {
   --tw-gradient-stops: var(--tw-gradient-from), #f9a8d4, var(--tw-gradient-to, #f9a8d400);
 }
 
-.to-red-300 {
-  --tw-gradient-to: #fca5a5;
+.to-rose-300 {
+  --tw-gradient-to: #fda4af;
 }
 
 .to-transparent {
   --tw-gradient-to: transparent;
-}
-
-.to-rose-300 {
-  --tw-gradient-to: #fda4af;
 }
 
 .p-0 {
@@ -802,7 +773,7 @@ header {
 .search-params button, #modal button, #modal a, .details button {
   color: #fff;
   cursor: pointer;
-  background-color: #ad343e;
+  background-color: #ba68c8;
   border: 1px solid #333;
   border-radius: 5px;
   margin: 0 auto;

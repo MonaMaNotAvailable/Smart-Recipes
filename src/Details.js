@@ -3,8 +3,9 @@ import { Component } from 'react';
 import { useParams } from 'react-router-dom';
 import Carousel from './Carousel';
 import ErrorBoundary from './ErrorBoundary';
-import ThemeContext from './ThemeContext';
+// import ThemeContext from './ThemeContext';
 import Modal from './Modal';
+import { connect } from "react-redux";
 
 // const Modal = lazy(( ) => import('./Modal'));
 
@@ -50,26 +51,28 @@ class Details extends Component {
                 <Carousel images = {images} />
                 <div>
                     <h1>{name}</h1>
-                    <h2>
-                        {recipe} - {type} - {city}, {country}
-                    </h2>
-                    <ThemeContext.Consumer>
-                        {([theme]) => (
-                            <button 
-                            onClick={this.toggleModal}
-                            style={{backgroundColor: theme}}>
-                                Try to cook {name}!
-                            </button>
-                        )}
-                    </ThemeContext.Consumer>
+                    <h2>{recipe} - {type} - {city}, {country}</h2>
+                    {/* <ThemeContext.Consumer>
+                        {([theme]) => ( */}
+                    <button 
+                        onClick={this.toggleModal}
+                        style={{backgroundColor: this.props.theme}}>
+                        Try to cook {name}!
+                    </button>
+                        {/* )}
+                    </ThemeContext.Consumer> */}
                     <p>{description}</p>
                     {showModal ? (
                         <Modal>
                             <div>
                                 <h1>Would you like to cook {name}?</h1>
                                 <div className="buttons">
-                                    <a href="https://www.xiachufang.com/">Yes</a>
-                                    <button onClick={this.toggleModal}>No</button>
+                                    <button href="https://www.xiachufang.com/"
+                                    style={{backgroundColor: this.props.theme}}>
+                                        Yes</button>
+                                    <button onClick={this.toggleModal}
+                                    style={{backgroundColor: this.props.theme}}>
+                                        No</button>
                                 </div>
                             </div>
                         </Modal>
@@ -80,13 +83,21 @@ class Details extends Component {
     }
 }
 
+const mapStateToProps = ({ theme }) => ({ theme });
+// //Equivalent to:
+// function(props){
+//     return {theme: props.theme}
+// }
+const ReduxWrappedDetails = connect(mapStateToProps)(Details);
+
 const WrappedDetails = () =>{
     const params = useParams();
     // const [theme] = useContext(ThemeContext);
     return (
         <ErrorBoundary>
             {/* Details theme = {theme} params={params} />; */}
-<           Details params={params} />;
+            {/* <Details params={params} />; */}
+            <ReduxWrappedDetails params={params} />;
         </ErrorBoundary>
     );
 };

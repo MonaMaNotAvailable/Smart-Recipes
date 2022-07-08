@@ -1,10 +1,13 @@
 import { render } from 'react-dom';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 // import { StrictMode, useState, lazy, Suspense } from 'react';
-import { StrictMode, useState} from 'react';
+// import { StrictMode, useState} from 'react';
+import { StrictMode} from 'react';
 import Details from './Details';
 import SearchParams from './SearchParams';
-import ThemeContext from './ThemeContext';
+// import ThemeContext from './ThemeContext';
+import { Provider } from "react-redux";
+import store from "./store";
 
 //Dynamic import
 // const Details = lazy(( ) => import('./Details'));
@@ -13,11 +16,12 @@ import ThemeContext from './ThemeContext';
 //Prop Drilling problem: passing props(e.g. theme) into every component in app
 //Context > Redux
 const App = () => {
-    const theme = useState("#ba68c8");
+    // const theme = useState("#ba68c8");
     return(
       <StrictMode>
         {/* <Suspense fallback={<h1>loading route …</h1>}> */}
-        <ThemeContext.Provider value={theme}>
+        {/* <ThemeContext.Provider value={theme}> */}
+        <Provider store={store}>
             <div className="p-0 m-0" style = {{
                 background: "url(https://img.freepik.com/free-photo/fresh-colourful-ingredients-mexican-cuisine_23-2148254294.jpg?w=2000)" }}>
             <BrowserRouter>
@@ -31,7 +35,8 @@ const App = () => {
                 </Routes>
             </BrowserRouter>
             </div>
-        </ThemeContext.Provider>
+        {/* </ThemeContext.Provider> */}
+        </Provider>
         {/* </Suspense>; */}
       </StrictMode>
         // <div id="my-app">
