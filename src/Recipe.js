@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 const Recipe = ({ name, type, style, images, location, id }) => {
 
     let img = "https://www.pngkey.com/png/full/17-170975_starbucks-gingerbread-loaf-recipe-boissons-starbucks-pink-starbucks.png";
-    if (images.length){
+    if (images && images.length){
         img = images[0];
     }
 
@@ -11,7 +11,7 @@ const Recipe = ({ name, type, style, images, location, id }) => {
         // <Link to={`/details/${id}`} className = 'recipe'>
         <Link to={`/details/${id}`} className = "relative block">
             <div className = "image-container">
-                <img src={img} alt={name} />
+                <img src={img} alt={name} data-testid="thumbnail"/>
             </div>
             <div className = "absolute bottom-0 left-0 bg-gradient-to-tr from-white to-transparent pr-2 pt-2">
             {/* <div className = "info"> */}
