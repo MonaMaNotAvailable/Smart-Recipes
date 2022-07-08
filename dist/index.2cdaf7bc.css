@@ -215,7 +215,6 @@ input::placeholder, textarea::placeholder {
 }
 
 select {
-  -webkit-print-color-adjust: exact;
   color-adjust: exact;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
   background-position: right .5rem center;
@@ -229,14 +228,12 @@ select {
   background-position: initial;
   background-repeat: unset;
   background-size: initial;
-  -webkit-print-color-adjust: unset;
   color-adjust: unset;
   padding-right: .75rem;
 }
 
 [type="checkbox"], [type="radio"] {
   appearance: none;
-  -webkit-print-color-adjust: exact;
   color-adjust: exact;
   vertical-align: middle;
   user-select: none;
@@ -504,6 +501,31 @@ select {
   background-color: rgb(229 231 235 / var(--tw-bg-opacity) );
 }
 
+.bg-blue-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(191 219 254 / var(--tw-bg-opacity) );
+}
+
+.bg-pink-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(251 207 232 / var(--tw-bg-opacity) );
+}
+
+.bg-red-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 202 202 / var(--tw-bg-opacity) );
+}
+
+.bg-fuchsia-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(240 171 252 / var(--tw-bg-opacity) );
+}
+
+.bg-fuchsia-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(245 208 254 / var(--tw-bg-opacity) );
+}
+
 .bg-gradient-to-b {
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops) );
 }
@@ -532,6 +554,10 @@ select {
 
 .to-transparent {
   --tw-gradient-to: transparent;
+}
+
+.to-rose-300 {
+  --tw-gradient-to: #fda4af;
 }
 
 .p-0 {

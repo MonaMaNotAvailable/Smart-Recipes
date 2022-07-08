@@ -75,7 +75,7 @@ const SearchParams = () => {
             
             {/* controlled form */}
             <form
-            className="p-10 mb-10 rounded-lg bg-gray-200 shadow-lg flex flex-col justify-center items-center"
+            className="p-10 mb-10 rounded-lg bg-fuchsia-200 shadow-lg flex flex-col justify-center items-center"
             onSubmit={(e) => {
                 e.preventDefault();
                 requestRecipes();

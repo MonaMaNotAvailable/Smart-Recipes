@@ -36,6 +36,7 @@ class Details extends Component {
     }
 
     toggleModal = () => this.setState({showModal: !this.state.showModal })
+    cook = () => (window.location = "https://www.xiachufang.com/");
 
     render(){
         if(this.state.loading){
